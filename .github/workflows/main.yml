@@ -1,10 +1,13 @@
 name: 'Qywx Push News'
 
 on:
+  workflow_dispatch:
+      branches:
+        - master
   schedule:
     - cron: '30 4 * * *'
-  watch:
-    types: [started]
+  # watch:
+  #   types: [started]
 
 env:
   TZ: Asia/Shanghai
