@@ -84,7 +84,7 @@ class Action:
                             'title': f'热搜榜 - {date}',
                             'thumb_media_id': self.thumbmediaid,
                             'author': 'Tonyz',
-                            'digest': f'{time} - 热搜消息',
+                            'digest': f'{time} - 每日热搜推送',
                             'content': f'{"".join(self.contents)}'
                         }
                         ]
