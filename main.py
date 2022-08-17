@@ -143,7 +143,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n> 知乎热搜 \n\n')
+            self.contents.append(f'\n 知乎热搜 \n\n')
             for item in resp.json()[:10]:
                 detail_url = item['source_url']
                 title = item['title']
@@ -162,7 +162,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n> 微博热搜榜\n\n')
+            self.contents.append(f'\n 微博热搜榜\n\n')
             for item in resp.json()[:10]:
                 detail_url = item['source_url']
                 title = item['title']
@@ -181,7 +181,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n> 微博话题榜\n\n')
+            self.contents.append(f'\n 微博话题榜\n\n')
             for item in resp.json()[:10]:
                 detail_url = item['source_url']
                 title = item['title']
@@ -200,7 +200,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n> 豆瓣话题\n\n')
+            self.contents.append(f'\n 豆瓣话题\n\n')
             for item in resp.json()[:10]:
                 detail_url = item['source_url']
                 title = item['title']
@@ -215,7 +215,7 @@ class Action:
         headers = {'User-Agent': random.choice(USER_AGENTS)}
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n> github热榜\n\n')
+            self.contents.append(f'\n github热榜\n\n')
             for item in resp.json()['items'][:10]:
                 detail_url = item['repo_link']
                 title = item['repo']
@@ -234,7 +234,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n> 鱼塘热榜\n\n')
+            self.contents.append(f'\n 鱼塘热榜\n\n')
             for item in resp.json()['Data']:
                 detail_url = item['Url']
                 title = item['Title']
