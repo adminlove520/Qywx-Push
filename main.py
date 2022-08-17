@@ -83,7 +83,7 @@ class Action:
                         'articles': [{
                             'title': f'热搜榜 - {date}',
                             'thumb_media_id': self.thumbmediaid,
-                            'author': 'notfound945',
+                            'author': 'Tonyz',
                             'digest': f'{time} - 热搜消息',
                             'content': f'{"".join(self.contents)}'
                         }
