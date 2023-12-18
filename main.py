@@ -226,7 +226,7 @@ class Action:
             print(f'something error occurred, message: {e}')
 
     async def get_fish_trend(self):
-        url = "https://www.tophub.fun:8888/GetAllInfoGzip?id=1006"
+        url = "https://mo.fish/GetAllInfoGzip?id=1006"
         headers = {
             'Referer': 'https://mo.fish/',
             'Origin': 'https://mo.fish',
