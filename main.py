@@ -172,7 +172,7 @@ class Action:
         except Exception as e:
             print(f'something error occurred, message: {e}')
 
-    async def get_weibo_hot_topics(self):
+    async def get_baidu_hot_topics(self):
         url = "https://news.bicido.com/api/news/?type_id=37"
         headers = {
             'Referer': 'https://bicido.com/',
@@ -191,7 +191,7 @@ class Action:
         except Exception as e:
             print(f'something error occurred, message: {e}')
 
-    async def get_douban_hot_topics(self):
+    async def get_freebuf_hot_topics(self):
         url = "https://news.bicido.com/api/news/?type_id=147"
         headers = {
             'Referer': 'https://bicido.com/',
@@ -210,7 +210,7 @@ class Action:
         except Exception as e:
             print(f'something error occurred, message: {e}')
 
-    async def get_douban_hot_topics(self):
+    async def get_xzAliyun_hot_topics(self):
         url = "https://news.bicido.com/api/news/?type_id=115"
         headers = {
             'Referer': 'https://bicido.com/',
@@ -229,7 +229,7 @@ class Action:
         except Exception as e:
             print(f'something error occurred, message: {e}')
 
-    async def get_douban_hot_topics(self):
+    async def get_seebug_hot_topics(self):
         url = "https://news.bicido.com/api/news/?type_id=115"
         headers = {
             'Referer': 'https://bicido.com/',
@@ -252,13 +252,13 @@ class Action:
         """主方法"""
         async with httpx.AsyncClient() as client:
             self.client = client
-            self.task_list.append(asyncio.create_task(self.get_weibo_hot_topics()))
-            self.task_list.append(asyncio.create_task(self.get_weibo_hot_search()))
-            self.task_list.append(asyncio.create_task(self.get_zhihu_hot_topics()))
-            self.task_list.append(asyncio.create_task(self.get_douban_hot_topics()))
             self.task_list.append(asyncio.create_task(self.get_v2ex_hot_topics()))
-            self.task_list.append(asyncio.create_task(self.get_github_trend()))
-            self.task_list.append(asyncio.create_task(self.get_fish_trend()))
+            self.task_list.append(asyncio.create_task(self.get_zhihu_hot_topics()))
+            self.task_list.append(asyncio.create_task(self.get_weibo_hot_search()))
+            self.task_list.append(asyncio.create_task(self.get_baidu_hot_topics()))
+            self.task_list.append(asyncio.create_task(self.get_freebuf_hot_topics()))
+            self.task_list.append(asyncio.create_task(self.get_xzAliyun_hot_topics()))
+            self.task_list.append(asyncio.create_task(self.get_seebug_hot_topics()))
 
             await asyncio.gather(*self.task_list)
 
