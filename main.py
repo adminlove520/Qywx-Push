@@ -173,7 +173,7 @@ class Action:
             print(f'something error occurred, message: {e}')
 
     async def get_weibo_hot_topics(self):
-        url = "https://bicido.com/api/news/?type_id=2"
+        url = "https://news.bicido.com/api/news/?type_id=37"
         headers = {
             'Referer': 'https://bicido.com/',
             'Host': 'bicido.com',
@@ -181,7 +181,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n 微博话题榜\n\n')
+            self.contents.append(f'\n 百度|今日热点\n\n')
             for item in resp.json()[:10]:
                 detail_url = item['source_url']
                 title = item['title']
@@ -192,7 +192,7 @@ class Action:
             print(f'something error occurred, message: {e}')
 
     async def get_douban_hot_topics(self):
-        url = "https://bicido.com/api/news/?type_id=5"
+        url = "https://news.bicido.com/api/news/?type_id=147"
         headers = {
             'Referer': 'https://bicido.com/',
             'Host': 'bicido.com',
@@ -200,7 +200,7 @@ class Action:
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n 豆瓣话题\n\n')
+            self.contents.append(f'\n FreeBuf\n\n')
             for item in resp.json()[:10]:
                 detail_url = item['source_url']
                 title = item['title']
@@ -210,37 +210,40 @@ class Action:
         except Exception as e:
             print(f'something error occurred, message: {e}')
 
-    async def get_github_trend(self):
-        url = "https://github-trending.vercel.app/repo"
-        headers = {'User-Agent': random.choice(USER_AGENTS)}
-        try:
-            resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n github热榜\n\n')
-            for item in resp.json()['items'][:10]:
-                detail_url = item['repo_link']
-                title = item['repo']
-                content = f'<ul><li> <a href={detail_url}>{title}</a> </li></ul>'
-                # content = f'- [{title}]({detail_url})\n'
-                self.contents.append(content)
-        except Exception as e:
-            print(f'something error occurred, message: {e}')
-
-    async def get_fish_trend(self):
-        url = "https://mo.fish/GetAllInfoGzip?id=1006"
+    async def get_douban_hot_topics(self):
+        url = "https://news.bicido.com/api/news/?type_id=115"
         headers = {
-            'Referer': 'https://mo.fish/',
-            'Origin': 'https://mo.fish',
+            'Referer': 'https://bicido.com/',
+            'Host': 'bicido.com',
             'User-Agent': random.choice(USER_AGENTS)
         }
         try:
             resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
-            self.contents.append(f'\n 鱼塘热榜\n\n')
-            for item in resp.json()['Data']:
-                detail_url = item['Url']
-                title = item['Title']
-                type = item['type']
+            self.contents.append(f'\n 先知社区\n\n')
+            for item in resp.json()[:10]:
+                detail_url = item['source_url']
+                title = item['title']
+                # content = f'- [{title}]({detail_url})\n'
                 content = f'<ul><li> <a href={detail_url}>{title}</a> </li></ul>'
-                # content = f'- [{title}]({detail_url}) [{type}]\n'
+                self.contents.append(content)
+        except Exception as e:
+            print(f'something error occurred, message: {e}')
+
+    async def get_douban_hot_topics(self):
+        url = "https://news.bicido.com/api/news/?type_id=115"
+        headers = {
+            'Referer': 'https://bicido.com/',
+            'Host': 'bicido.com',
+            'User-Agent': random.choice(USER_AGENTS)
+        }
+        try:
+            resp = await self.client.get(url, headers=headers, timeout=TIMEOUT)
+            self.contents.append(f'\n 知道创宇|洞悉漏洞\n\n')
+            for item in resp.json()[:10]:
+                detail_url = item['source_url']
+                title = item['title']
+                # content = f'- [{title}]({detail_url})\n'
+                content = f'<ul><li> <a href={detail_url}>{title}</a> </li></ul>'
                 self.contents.append(content)
         except Exception as e:
             print(f'something error occurred, message: {e}')
